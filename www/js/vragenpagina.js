@@ -5,7 +5,7 @@ var current;
 // variable which will be filled with previous questions
 var previous;
 // url variable with questions
-var url = "http://leondekraker.nl/vragenapp/vragenpagina/";
+var url = "http://vragenapp.hybrideonderwijs.nl/vragenpagina/";
 /** 
  * Function to fill the page with questions or with a "Er zijn op dit moment geen vragen" message
  */
@@ -141,7 +141,7 @@ $(document).on('click', "#submitOpenvraag", function () {
     // ajax function
     $.ajax({
         // url to send data to
-        url: "http://leondekraker.nl/vragenapp/afhandelpagina/",
+        url: "http://vragenapp.hybrideonderwijs.nl/afhandelpagina/",
         // type post because it sends data
         type: 'POST',
         // allow to send data to a other domain
@@ -151,7 +151,7 @@ $(document).on('click', "#submitOpenvraag", function () {
         // on succes of the ajax function fill localStorage with data
         success: function () {
             alert("Uw antwoord is verzonden!");
-            // Empty array variable for open questions
+            // Empty array variable for answered questions
             var beantwoordeVragen = [];
             // Parse the serialized data back into an aray of objects
             beantwoordeVragen = JSON.parse(localStorage.getItem('beantwoordeVragen'));
@@ -178,7 +178,7 @@ $(document).on('click', "#submitGeslotenvraag", function () {
     var dataString = "userAnswer=" + inputtedUserAnswer + "&userId=" + userId + "&vraagId=" + vraagId + "&voegAntwoordToe=";
     $.ajax({
         // url to send data to
-        url: "http://leondekraker.nl/vragenapp/afhandelpagina/",
+        url: "http://vragenapp.hybrideonderwijs.nl/afhandelpagina/",
         // type post because it sends data
         type: 'POST',
         // allow to send data to a other domain
