@@ -29,7 +29,7 @@ function getVragen() {
             // if the sliced datetime is current datetime or older than current datetime execute if statement that checks if user meets requirements. If met, create open question
             if (slicedDatetime == dateTime || slicedDatetime < dateTime) {
                 // if question type = 1 (open question) and localstorage doesn't include current question and question education equals chosen user education and the questions aren't the same as last questions check, create questions
-                if (data[i].vraagSoort == 1 && !JSON.parse(localStorage.getItem("beantwoordeVragen")).includes(data[i].vraagId) && localStorage.getItem("gekozenOpleiding") === data[i].opleiding) {
+                if (data[i].vraagSoort == 1 && !JSON.parse(localStorage.getItem("beantwoordeVragen")).includes(data[i].vraagId) && localStorage.getItem("gekozenOpleiding") === data[i].opleidingId) {
                     // div with open question data
                     txt += "<div class='row'><div id='openvraagDiv' class='form-group'><label class='vragenpaginaTekst col-md-12' id='openVraag' name='" + data[i].vraagId + "'>" + data[i].vraag + "</label>" +
                         "<input required type='text' class='form-control vragenpaginaTekst vraagInput col-md-12' />" +
@@ -37,7 +37,7 @@ function getVragen() {
                         "</div> </div>";
                 }
                 // if question type = 0 (rating question) and localstorage doesn't include current question and question education equals chosen user education and questions aren't the same as last questions check. If met, create rating question
-                if (data[i].vraagSoort == 0 && !JSON.parse(localStorage.getItem("beantwoordeVragen")).includes(data[i].vraagId) && localStorage.getItem("gekozenOpleiding") === data[i].opleiding) {
+                if (data[i].vraagSoort == 0 && !JSON.parse(localStorage.getItem("beantwoordeVragen")).includes(data[i].vraagId) && localStorage.getItem("gekozenOpleiding") === data[i].opleidingId) {
                     // create div with star questions. &#9733 = star icon
                     txt += " <div id='geslotenvraagDiv'>" +
                         " <div class='row' id='vraagTekst'>" +
