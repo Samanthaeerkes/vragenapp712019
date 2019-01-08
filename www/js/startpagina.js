@@ -22,8 +22,6 @@ $(document).ready(function () {
  * Onclick start button create user, set localStorage values and redirect to overzichtspagina.html
  */
 $('#startButton').click(function () {
-    // variable that gets the selected cluster name
-    var selectedEducation = $('#sel2 option:selected').attr('opleiding');
     // variable that gets the id from the selected education
     var selectedEducationId = $('#sel2 option:selected').attr('opleidingId');
     // variable with user id from user's device
@@ -55,7 +53,7 @@ $('#startButton').click(function () {
             // set locally userIngelogd = "true"
             localStorage.setItem("userIngelogd", "true");
             // set locally which education the user has chosen
-            localStorage.setItem("gekozenOpleiding", selectedEducation);
+            localStorage.setItem("gekozenOpleiding", selectedEducationId);
             // empty array variable which will be filled with questions
             var beantwoordeVragen = [];
             // get current answered questions and put them in beantwoordeVragen variable
