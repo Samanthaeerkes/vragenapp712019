@@ -3,7 +3,7 @@
  */
 $(document).ready(function () {
     // get JSON from server page function
-    $.getJSON("http://leondekraker.nl/vragenapp/clusters-en-opleidingen/", function (data) {
+    $.getJSON("http://vragenapp.hybrideonderwijs.nl/clusters-en-opleidingen/", function (data) {
         // empty prevCluster variable to prevent duplicate clusters
         var prevCluster = "";
         // for each json data create option element with cluster value
@@ -22,8 +22,6 @@ $(document).ready(function () {
  * Onclick start button create user, set localStorage values and redirect to overzichtspagina.html
  */
 $('#startButton').click(function () {
-    // variable that gets the selected cluster name
-    var selectedEducation = $('#sel2 option:selected').attr('opleiding');
     // variable that gets the id from the selected education
     var selectedEducationId = $('#sel2 option:selected').attr('opleidingId');
     // variable with user id from user's device
@@ -43,7 +41,7 @@ $('#startButton').click(function () {
     var dataString = "educationId=" + selectedEducationId + "&userId=" + userId + "&user_created=" + dateTime + "&voegGebruikerToe=";
     $.ajax({
         // url to send data to
-        url: "http://leondekraker.nl/vragenapp/afhandelpagina/",
+        url: "http://vragenapp.hybrideonderwijs.nl/afhandelpagina/",
         // post the data
         type: 'POST',
         // allow sending data to other domain
@@ -55,7 +53,7 @@ $('#startButton').click(function () {
             // set locally userIngelogd = "true"
             localStorage.setItem("userIngelogd", "true");
             // set locally which education the user has chosen
-            localStorage.setItem("gekozenOpleiding", selectedEducation);
+            localStorage.setItem("gekozenOpleiding", selectedEducationId);
             // empty array variable which will be filled with questions
             var beantwoordeVragen = [];
             // get current answered questions and put them in beantwoordeVragen variable
@@ -87,7 +85,7 @@ $('#sel1').on('change', function () {
     // enable select field
     $("#sel2").prop('disabled', false);
     // get clusters and educations
-    $.getJSON("http://leondekraker.nl/vragenapp/clusters-en-opleidingen/", function (data) {
+    $.getJSON("http://vragenapp.hybrideonderwijs.nl/clusters-en-opleidingen/", function (data) {
         //foreach json data fill #sel2 with education options
         $.each(data, function (i, data) {
             // if statement to only add educations that belong to the selected cluster

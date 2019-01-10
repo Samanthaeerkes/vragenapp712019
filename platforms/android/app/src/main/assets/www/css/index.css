@@ -158,6 +158,14 @@ h1 {
     width: 80%;
     margin: 5%;
 }
+/*backbutton op vragenpagina en profielpagina*/
+.back-button {
+    content: url('../img/Back-button.png');
+    width: 5% !important;
+    height: auto !important;
+    margin-top: 5% !important;
+    margin-left: 5% !important;
+}
 
 /* css dropdown button*/
 
@@ -258,9 +266,10 @@ a {
 }
 
 .vragenpaginaTekst {
-    font-family: Gloria Hallelujah Regular;
+    font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     color: white;
     text-transform: lowercase;
+    position: relative;
 }
 
 .vragenpaginaTekst:first-letter {
@@ -269,8 +278,9 @@ a {
 
 #vragenpaginaTitel {
     font-size: 25px;
-    margin-top: 5%;
+    margin-top: 3%;
     padding-bottom: 4%;
+    font-family: 'Gloria Hallelujah Regular';
 }
 
 #openvraagDiv {
@@ -373,6 +383,8 @@ label.star:before {
     padding: 0px;
     height: 100vh;
 }
+
+
 
 .profile-button {
     content: url('../img/profile-icon.png');

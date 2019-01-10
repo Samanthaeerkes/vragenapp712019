@@ -36,10 +36,14 @@ under the License.
 
 <body>
     <div class="container-fluid">
-        <!--- drop down menu cluster-->
+        
         <div class="col-md-12 col-sm-12 col-xs-12 well" id="bg3">
-
-
+            <div class="container col-md-12 col-sm-12 col-xs-12">
+                <a class="rounded float-left back-button" href="overzichtspagina.html"><img src="img/Back-button.png"></a>
+            </div>
+        </div>
+            
+            <!-- PROFIEL BUTTON LINKSBOVEN-->
             <div class="container col-md-12 col-sm-12 col-xs-12">
                 <div class="rounded float-left profile-button"> </div>
                 <div class="ID-tekst">
@@ -47,7 +51,7 @@ under the License.
 
                 </div>
             </div>
-
+            <!-- PROFIEL BUTTON LINKSBOVEN END-->
 
             <!--SELECTOR-->
             <div id="profielpaginaSelector" class="container">
@@ -93,7 +97,7 @@ under the License.
         function getSelectedOpleiding(deviceId) {
             return $.ajax({
                 type: "GET",
-                url: "http://leondekraker.nl/vragenapp/afhandel-profiel/?deviceId=" + deviceId,
+                url: "http://vragenapp.hybrideonderwijs.nl/afhandel-profiel/?deviceId=" + deviceId,
                 async: false
             }).responseText;
         }
@@ -101,7 +105,7 @@ under the License.
         function getSelectedCluster(opleidingId) {
             return $.ajax({
                 type: "GET",
-                url: "http://leondekraker.nl/vragenapp/afhandel-profiel/?clusterForOpleidingId=" + opleidingId,
+                url: "http://vragenapp.hybrideonderwijs.nl/afhandel-profiel/?clusterForOpleidingId=" + opleidingId,
                 async: false
             }).responseText;
         }
@@ -109,15 +113,15 @@ under the License.
         function loadClusters() {
             return $.ajax({
                 type: "GET",
-                url: "http://leondekraker.nl/vragenapp/afhandel-profiel/?dropdown=clusters",
+                url: "http://vragenapp.hybrideonderwijs.nl/afhandel-profiel/?dropdown=clusters",
                 async: false
             }).responseText;
         }
-        // connectie met de database via afhandel.php om het CluserID op te halen die gekoppeld staat aan de geselecteerde opleiding.
+        // connectie met de database via afhandel.php om het ClusterID op te halen die gekoppeld staat aan de geselecteerde opleiding.
         function loadOpleidingen(selectedClusterId) {
             return $.ajax({
                 type: "GET",
-                url: "http://leondekraker.nl/vragenapp/afhandel-profiel/?dropdown=opleidingen&clusterId=" +
+                url: "http://vragenapp.hybrideonderwijs.nl/afhandel-profiel/?dropdown=opleidingen&clusterId=" +
                     selectedClusterId,
                 async: false
             }).responseText;
@@ -143,7 +147,7 @@ under the License.
             };
             $.ajax({
                 type: "POST",
-                url: "http://leondekraker.nl/vragenapp/afhandel-profiel/",
+                url: "http://vragenapp.hybrideonderwijs.nl/afhandel-profiel/",
                 data: data
             });
         }
@@ -154,7 +158,7 @@ under the License.
             };
             $.ajax({
                 type: "POST",
-                url: "http://leondekraker.nl/vragenapp/afhandel-profiel/",
+                url: "http://vragenapp.hybrideonderwijs.nl/afhandel-profiel/",
                 data: data
             });
         }
@@ -185,7 +189,7 @@ under the License.
 
             //update function id.
             $('#bijwerken').on('click', function () {
-                alert("Uw profiel is bijgewerk");
+                alert("Uw profiel is bijgewerkt");
                 var newOpleiding = $('.opleiding-select').val();
                 updateSelectedOpleiding(deviceId, newOpleiding);
                 localStorage.removeItem("gekozenOpleiding");
